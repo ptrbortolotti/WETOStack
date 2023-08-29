@@ -72,7 +72,7 @@ filetypes:
 file_structure_stability: semantic_versioning
 
 # WETO Integrations (downstream)
-downstream_integrations:
+dependencies:
 -   - wisdem
     - direct
 -   - rosco
@@ -89,5 +89,5 @@ downstream_integrations:
     - direct
 -   - sonata
     - indirect
--   - numad
+-   - pynumad
     - indirect

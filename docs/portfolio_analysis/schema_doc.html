@@ -205,7 +205,7 @@ In the web address, this is the last component: https://github.com/&lt;account>/
 <span class="description"><p>The primary programming language even though many projects contain source code in a few languages.</p>
 </span><div class="enum-value" id="programming_language_enum">
             <h4>Must be one of:</h4>
-            <ul class="list-group"><li class="list-group-item enum-item">"python"</li><li class="list-group-item enum-item">"fortran"</li><li class="list-group-item enum-item">"matlab"</li><li class="list-group-item enum-item">"cpp"</li></ul>
+            <ul class="list-group"><li class="list-group-item enum-item">"python"</li><li class="list-group-item enum-item">"fortran"</li><li class="list-group-item enum-item">"matlab"</li><li class="list-group-item enum-item">"c++"</li><li class="list-group-item enum-item">"rust"</li><li class="list-group-item enum-item">"julia"</li><li class="list-group-item enum-item">"r"</li></ul>
             </div>
         
 
@@ -469,14 +469,20 @@ In the web address, this is the last component: https://github.com/&lt;account>/
             <div class="card-body pl-5">
 
     <span class="badge badge-dark value-type">Type: string or array of enum (of string)</span><br/>
-<span class="description"><p>Does the software support time domain modeling or analysis, steady-state modeling or analysis, or both?</p>
+<span class="description"><p>Does the software support time domain modeling or analysis and/or steady-state modeling or analysis? This is an array-type field, so include two  elements if both are supported</p>
 </span>
         
 
         
         
 
-        
+        <br/>
+<div class="badge badge-secondary">Example:</div>
+<br/><div id="time_domain_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="nt">time_domain</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">steady</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dynamic</span>
+</pre></div>
+</div>
             </div>
         </div>
     </div>
@@ -1274,7 +1280,7 @@ In the web address, this is the last component: https://github.com/&lt;account>/
     <span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
 <div class="enum-value" id="language_interfaces_items_enum">
             <h4>Must be one of:</h4>
-            <ul class="list-group"><li class="list-group-item enum-item">"python"</li><li class="list-group-item enum-item">"fortran"</li><li class="list-group-item enum-item">"matlab"</li><li class="list-group-item enum-item">"cpp"</li></ul>
+            <ul class="list-group"><li class="list-group-item enum-item">"python"</li><li class="list-group-item enum-item">"fortran"</li><li class="list-group-item enum-item">"matlab"</li><li class="list-group-item enum-item">"c++"</li><li class="list-group-item enum-item">"rust"</li><li class="list-group-item enum-item">"julia"</li><li class="list-group-item enum-item">"r"</li></ul>
             </div>
         
 
@@ -1393,26 +1399,28 @@ In the web address, this is the last component: https://github.com/&lt;account>/
         </div>
     </div>
 </div>
-<div class="accordion" id="accordiondownstream_integrations">
+<div class="accordion" id="accordiondependencies">
     <div class="card">
-        <div class="card-header" id="headingdownstream_integrations">
+        <div class="card-header" id="headingdependencies">
             <h2 class="mb-0">
-                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#downstream_integrations"
-                        aria-expanded="" aria-controls="downstream_integrations" onclick="setAnchor('#downstream_integrations')"><span class="property-name">downstream_integrations</span></button>
+                <button class="btn btn-link property-name-button" type="button" data-toggle="collapse" data-target="#dependencies"
+                        aria-expanded="" aria-controls="dependencies" onclick="setAnchor('#dependencies')"><span class="property-name">dependencies</span></button>
             </h2>
         </div>
 
-        <div id="downstream_integrations"
-             class="collapse property-definition-div" aria-labelledby="headingdownstream_integrations"
-             data-parent="#accordiondownstream_integrations">
+        <div id="dependencies"
+             class="collapse property-definition-div" aria-labelledby="headingdependencies"
+             data-parent="#accordiondependencies">
             <div class="card-body pl-5">
 
     <span class="badge badge-dark value-type">Type: array of array</span><br/>
-<span class="description"><p>List other WETO software projects associated with this one either through a direct or indirect connection.<br />
+<span class="description"><p>List other WETO software projects that this one depends on either through a direct or indirect connection.<br />
  - <code>direct</code>: code-code integration<br />
  - <code>indirect</code>: one uses the output of the other via output file or another workflow process</p>
 
 <p>This field is a 2D list. See the example below for syntax.</p>
+
+<p>An example of a real dependency is FLORIS requires a power coefficient and thrust coefficient look up table from a higher fidelity simulation or field data. This often comes from OpenFAST, so that tool is an indirect dependency of FLORIS.</p>
 </span>
         
 
@@ -1421,7 +1429,7 @@ In the web address, this is the last component: https://github.com/&lt;account>/
 
          <span class="badge badge-info no-additional">No Additional Items</span><h4>Each item of this array must be:</h4>
     <div class="card">
-        <div class="card-body items-definition" id="downstream_integrations_items">
+        <div class="card-body items-definition" id="dependencies_items">
             
 
     <span class="badge badge-dark value-type">Type: array</span><br/>
@@ -1435,7 +1443,7 @@ In the web address, this is the last component: https://github.com/&lt;account>/
     
     <h5>Item at 1 must be:</h5>
     <div class="card">
-        <div class="card-body items-definition" id="downstream_integrations_items_items_i0">
+        <div class="card-body items-definition" id="dependencies_items_items_i0">
             
 
     <span class="badge badge-dark value-type">Type: string</span><br/>
@@ -1451,11 +1459,11 @@ In the web address, this is the last component: https://github.com/&lt;account>/
     
     <h5>Item at 2 must be:</h5>
     <div class="card">
-        <div class="card-body items-definition" id="downstream_integrations_items_items_i1">
+        <div class="card-body items-definition" id="dependencies_items_items_i1">
             
 
     <span class="badge badge-dark value-type">Type: enum (of string)</span><br/>
-<div class="enum-value" id="downstream_integrations_items_items_i1_enum">
+<div class="enum-value" id="dependencies_items_items_i1_enum">
             <h4>Must be one of:</h4>
             <ul class="list-group"><li class="list-group-item enum-item">"direct"</li><li class="list-group-item enum-item">"indirect"</li></ul>
             </div>
@@ -1471,7 +1479,7 @@ In the web address, this is the last component: https://github.com/&lt;account>/
         </div>
     </div><br/>
 <div class="badge badge-secondary">Example:</div>
-<br/><div id="downstream_integrations_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="nt">downstream_integrations</span><span class="p">:</span>
+<br/><div id="dependencies_ex1" class="jumbotron examples"><div class="highlight"><pre><span></span><span class="nt">dependencies</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openfast</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">direct</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">floris</span>
@@ -1486,6 +1494,6 @@ In the web address, this is the last component: https://github.com/&lt;account>/
 </div>
 
     <footer>
-        <p class="generated-by-footer">Generated using <a href="https://github.com/coveooss/json-schema-for-humans">json-schema-for-humans</a> on 2023-08-21 at 08:26:00 -0500</p>
+        <p class="generated-by-footer">Generated using <a href="https://github.com/coveooss/json-schema-for-humans">json-schema-for-humans</a> on 2023-08-28 at 18:57:21 -0500</p>
     </footer></body>
 </html>
