@@ -75,7 +75,7 @@ filetypes:
 file_structure_stability: stable
 
 # WETO Integrations (downstream)
-downstream_integrations:
+dependencies:
 -   - openfast
     - indirect
 -   - anba4
