@@ -8,7 +8,7 @@ primary_uses:
 active_funding: true
 development_status: new_features
 programming_language: python
-license_type: GNU General Public License v3.0
+license_type: gpl-3.0
 data_collection_methods:
 - modeling
 last_release_date: "2023-03-20"
@@ -25,7 +25,8 @@ system_location:
 - fixed_offshore
 - floating_offshore
 time_domain:
-- both
+- steady
+- dynamic
 loads: false
 governing_equations:
 - "Elastic, anisotropic, non-homogeneous, prismatic beams solved through a semi-analytical formulation"
@@ -35,10 +36,8 @@ supported_platforms:
     - macos
     - linux
     - HPC
-package_manager:
-    - none
-package_manager_url:
-    - https://anaconda.org/conda-forge/fenics
+# package_manager:
+# package_manager_url:
 installation_complexity: 7
 
 # Documentation
